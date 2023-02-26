@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="post">
+        
+        Id
+                <br>
+                <input type="text" id="id" placeholder="masukan id">
+                <br>
+            
+        Title
+                <br>
+                <input type="text" id="title" placeholder="masukan Title">
+                <br>
+            
+        Price
+                <br>
+                <input type="text" id="price" placeholder="masukan price">
+                <br>
+
+        Author
+                <br>
+                <input type="text" id="author" placeholder="masukan author">
+                <br>
+
+        Date
+                <br>
+                <input type="date" id="date" placeholder="masukan date">
+                <br>
+            
+                <button type="submit" name="submit" onclick="lihat()">Lihat</button>
+            </label>
+            <br>
+        </form>
+
+
+
+    <script type="text/javascript">
+
+        class book{
+            #id
+            #title
+            #price=0
+            #author
+            #date
+
+            set id (id){
+                this.#id=id
+            }
+
+            set title (title){
+                if (title.length < 6){
+                    alert("tidak bisa kurang dari 5 huruf")
+                }
+                this.#title=title
+                return;
+            }
+
+            set price (price){
+                if ( price < 0 || typeof price !== 'number'){
+                    alert("price tidak terbaca")
+                    return;
+                }
+                this.#price=price
+                
+            }
+
+            set author (author){
+                this.#author=author
+            }
+
+            set date (date){
+                this.#date=date
+            }
+
+            get id(){
+                return this.#id
+            }
+
+            get title(){
+                return this.#title
+            }
+
+            get price (){
+                return this.#price
+            }
+
+            get author(){
+                return this.#author
+            }
+
+            get date(){
+                return this.#date
+            }
+            }
+        
+            function lihat (){
+            var book1=new book()
+            book1.id=document.getElementById("id").value;
+            book1.title=document.getElementById("title").value;
+            book1.price=document.getElementById("price").value;
+            book1.author=document.getElementById("author").value;
+            book1.date=document.getElementById("date").value;
+
+                document.write(`Id: ${book1.id}`+"<br/>")
+                document.write(`Title: ${book1.title}`+"<br/>")
+                document.write(`Price: Rp.${book1.price}`+"<br/>")
+                document.write(`Author: ${book1.author}`+"<br/>")
+                document.write(`Date: ${book1.date}`+"<br/>")
+            
+            }
+        </script>
+</body>
+</html>
